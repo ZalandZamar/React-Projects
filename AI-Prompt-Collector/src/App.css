@@ -1,42 +1,68 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+button {
+  cursor: pointer;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.input {
+  width: 300px;
+  height: 30px;
+  padding: 4px 8px;
+  font-size: 15px;
+  border: solid 1px black;
+  outline: none;
 }
 
-.card {
-  padding: 2em;
+.save-button,
+.delete-all-button {
+  margin-left: 10px;
+  height: 40px;
+  padding: 4px 8px;
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
 }
 
-.read-the-docs {
-  color: #888;
+.save-button {
+  width: 70px;
+  background-color: rgb(40, 163, 40);
+}
+
+.delete-all-button {
+  width: 100px;
+  background-color: rgb(215, 47, 47);
+}
+
+.prompts-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px black;
+  padding: 20px 20px;
+  border-radius: 4px;
+}
+
+.prompt-content {
+  font-size: 18px;
+  font-weight: 500;
+  width: 350px;
+}
+
+.delete-button {
+  background-color: rgb(240, 58, 58);
+  color: black;
+  width: 70px;
+  height: 25px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 3px;
 }
