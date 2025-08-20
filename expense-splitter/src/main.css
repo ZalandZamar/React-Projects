@@ -1,0 +1,10 @@
+.add-button {
+  width: 80px;
+  background-color: rgb(23, 196, 23);
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+}
