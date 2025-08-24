@@ -71,7 +71,6 @@ function App() {
 
   const deleteBill = (i) => {
     const newItems = [...allBillsArr];
-
     newItems.splice(i, 1);
     setAllBillsArr(newItems);
 

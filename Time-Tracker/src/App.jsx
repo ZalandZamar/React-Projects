@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { CreateProject } from './components/CreateProject.jsx';
+import { DisplayProjects } from './components/DisplayProjects.jsx';
+import './App.css';
+
+const STEPS = {
+  createProject: "createProject",
+  displayProjects: "addProjectToStorage",
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [step, setStep] = useState(STEPS.displayProjects);
+  const [projectName, setProjectName] = useState('');
+  const [saveProjectsArr, setSaveProjectsArr] = useState(JSON.parse(localStorage.getItem('projects')) || []);
+
+  function renderSteps() {
+    switch (step) {
+
+      case STEPS.createProject:
+        return <CreateProject setStep={setStep}
+          STEPS={STEPS}
+          projectName={projectName}
+          setProjectName={setProjectName}
+          setSaveProjectsArr={setSaveProjectsArr}
+        />
+
+      case STEPS.displayProjects:
+        return <DisplayProjects saveProjectsArr={saveProjectsArr}
+          setSaveProjectsArr={setSaveProjectsArr}
+          setStep={setStep}
+          STEPS={STEPS}
+          />
+
+      default:
+        return null;
+    }
+  }
+
+  useEffect(() => {
+    localStorage.setItem('projects', JSON.stringify(saveProjectsArr));
+  }, [saveProjectsArr])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      {renderSteps(step)}
+    </div>
+  );
 }
 
 export default App
