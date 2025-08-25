@@ -1,4 +1,4 @@
-export const DisplayProjects = ({ saveProjectsArr, setStep, STEPS, setSaveProjectsArr }) => {
+export const DisplayProjects = ({ saveProjectsArr, setStep, STEPS, setSaveProjectsArr, editProjectName }) => {
   function createProjectFunction() {
     setStep(STEPS.createProject);
   }
@@ -19,7 +19,7 @@ export const DisplayProjects = ({ saveProjectsArr, setStep, STEPS, setSaveProjec
           return (
             <div key={i} className="display-projects-container">
               <p>{item}</p>
-              <button>
+              <button onClick={() => editProjectName(i)}>
                 <img src="../../public/edit.png" alt="edit button" />
               </button>
               <button onClick={() => deleteProject(i)}>
