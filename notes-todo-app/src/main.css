@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  background: #e9ecef;
+}
+
+* {
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+button {
+  cursor: pointer;
+}
